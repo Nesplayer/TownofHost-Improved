@@ -21,6 +21,7 @@ internal class Anonymous : RoleBase
 
     private static OptionItem HackLimitOpt;
     private static OptionItem KillCooldown;
+    private static OptionItem AbilityCD;
 
     private static readonly List<byte> DeadBodyList = [];
 
@@ -31,6 +32,8 @@ internal class Anonymous : RoleBase
             .SetValueFormat(OptionFormat.Seconds);
         HackLimitOpt = IntegerOptionItem.Create(Id + 4, "HackLimit", new(1, 15, 1), 3, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Anonymous])
             .SetValueFormat(OptionFormat.Times);
+        AbilityCD = FloatOptionItem.Create(Id + 5, GeneralOption.AbilityCooldown, new(0f, 180f, 2.5f), 30f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Anonymous])
+            .SetValueFormat(OptionFormat.Seconds);
     }
     public override void Init()
     {
@@ -43,7 +46,7 @@ internal class Anonymous : RoleBase
     public override void SetKillCooldown(byte id) => Main.AllPlayerKillCooldown[id] = KillCooldown.GetFloat();
     public override void ApplyGameOptions(IGameOptions opt, byte playerId)
     {
-        AURoleOptions.ShapeshifterCooldown = 1f;
+        AURoleOptions.ShapeshifterCooldown = AbilityCD.GetFloat();
         AURoleOptions.ShapeshifterDuration = 1f;
     }
     public override void SetAbilityButtonText(HudManager hud, byte playerId)
