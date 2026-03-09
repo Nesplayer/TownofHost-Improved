@@ -188,7 +188,8 @@ public static class Options
     public static OptionItem CleanserAbilityUseGainWithEachTaskCompleted;
 
     //public static OptionItem EnableGM;
-    public static float DefaultKillCooldown = Main.NormalOptions?.KillCooldown ?? 20;
+    public static OptionItem KillCooldown;
+    public static float DefaultKillCooldown = Options.KillCooldown.GetFloat();
     public static OptionItem GhostsDoTasks;
     public static Dictionary<AddonTypes, List<CustomRoles>> GroupedAddons = [];
 
@@ -1387,6 +1388,11 @@ public static class Options
             .SetColor(Color.red)
             .SetGameMode(CustomGameMode.HidenSeekTOHO)
             .SetValueFormat(OptionFormat.Players);
+
+        KillCooldown = FloatOptionItem.Create(60439, RoleBase.GeneralOption.KillCooldown, (5f, 60f, 1f), 1f,
+                TabGroup.ModSettings, false)
+            .SetGameMode(CustomGameMode.Standard)
+            .SetValueFormat(OptionFormat.Seconds);
         
         // Confirm Ejections Mode
         TextOptionItem.Create(10000057, "MenuTitle.Ejections", TabGroup.ModSettings)
