@@ -36,7 +36,7 @@ internal class Detonator : RoleBase
             .SetValueFormat(OptionFormat.Times);
         FreezeTime = FloatOptionItem.Create(Id + 12, "FreezeTime343", new(1f, 25f, 1.5f), 10f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Detonator])
             .SetValueFormat(OptionFormat.Seconds);
-        ExplosionRadius = FloatOptionItem.Create(Id + 10, "ExplosionRadius343", new(0.5f, 1.5f, 0.1f), 1.3f, TabGroup.ImpostorRoles, false)
+        ExplosionRadius = FloatOptionItem.Create(Id + 13, "ExplosionRadius343", new(0.5f, 1.5f, 0.1f), 1.3f, TabGroup.ImpostorRoles, false)
             .SetParent(CustomRoleSpawnChances[CustomRoles.Detonator])
             .SetValueFormat(OptionFormat.Multiplier);
     }
