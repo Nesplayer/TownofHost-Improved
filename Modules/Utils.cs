@@ -720,7 +720,7 @@ public static class Utils
                     ProgressText.Append(TrickorTreat.GetProgressText(playerId));
                     break;
                 case CustomGameMode.FourCorners:
-                    ProgressText.Append(FourCorners.GetProgressText(playerId));
+                    ProgressText.Append(string.Empty);
                     break;
                 default:
                     ProgressText.Append(playerId.GetRoleClassById()?.GetProgressText(playerId, comms));

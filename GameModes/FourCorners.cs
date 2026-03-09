@@ -77,7 +77,7 @@ internal static class FourCorners
         return finalRoles;
     }
 
-    public static string GetProgressText(byte playerId)
+    public static string GetNotifyText(byte playerId)
     {
         var player = Utils.GetPlayerById(playerId);
         if (player.IsAlive()) return string.Format(GetString("FourCornersTimeRemain"), RoundTime.ToString(), ActiveRooms[0].ToString(), ActiveRooms[1].ToString(), ActiveRooms[2].ToString(), ActiveRooms[3].ToString());
@@ -103,6 +103,8 @@ internal static class FourCorners
             if (LastFixedUpdate == now) return;
             LastFixedUpdate = now;
 
+            foreach (var player in Main.AllPlayerControls) player.Notify(GetNotifyText(player.PlayerId));
+            
             RoundTime--;
             if (RoundTime <= 0)
             {
