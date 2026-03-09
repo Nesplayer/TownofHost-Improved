@@ -99,6 +99,9 @@ public class GameStartManagerPatch
                 Main.NormalOptions.ConfirmImpostor = false;
                 Main.NormalOptions.SetBool(BoolOptionNames.ConfirmImpostor, false);
 
+                if (Main.NormalOptions.KillCooldown == 0f)
+                    Main.NormalOptions.KillCooldown = Main.LastKillCooldown.Value;
+
                 AURoleOptions.SetOpt(Main.NormalOptions.Cast<IGameOptions>());
                 if (AURoleOptions.ShapeshifterCooldown == 0f)
                     AURoleOptions.ShapeshifterCooldown = Main.LastShapeshifterCooldown.Value;
@@ -342,8 +345,8 @@ public class GameStartManagerBeginGamePatch
 
         if (GameStates.IsNormalGame)
         {
-            Options.DefaultKillCooldown = Options.KillCooldown.GetFloat();
-            Main.LastKillCooldown.Value = Options.KillCooldown.GetFloat();
+            Options.DefaultKillCooldown = Main.NormalOptions.KillCooldown;
+            Main.LastKillCooldown.Value = Main.NormalOptions.KillCooldown;
             Main.NormalOptions.KillCooldown = 0f;
 
             AURoleOptions.SetOpt(opt);
@@ -427,7 +430,7 @@ class ResetStartStatePatch
             SoundManager.Instance.StopSound(__instance.gameStartSound);
 
             if (GameStates.IsNormalGame)
-                Main.NormalOptions.KillCooldown = Options.KillCooldown.GetFloat();
+                Main.NormalOptions.KillCooldown = Options.DefaultKillCooldown;
 
             PlayerControl.LocalPlayer.RpcSyncSettings(GameOptionsManager.Instance.gameOptionsFactory.ToBytes(GameOptionsManager.Instance.CurrentGameOptions, AprilFoolsMode.IsAprilFoolsModeToggledOn));
         }

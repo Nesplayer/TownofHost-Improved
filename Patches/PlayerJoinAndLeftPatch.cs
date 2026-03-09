@@ -81,6 +81,8 @@ class OnGameJoinedPatch
                 case GameModes.Normal:
                     Logger.Info(" Is Normal Game", "Game Mode");
 
+                    if (Main.NormalOptions.KillCooldown == 0f)
+                        Main.NormalOptions.KillCooldown = Main.LastKillCooldown.Value;
 
                     AURoleOptions.SetOpt(Main.NormalOptions.Cast<IGameOptions>());
 

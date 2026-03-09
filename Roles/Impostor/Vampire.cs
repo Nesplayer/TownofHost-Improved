@@ -80,6 +80,7 @@ internal class Vampire : RoleBase
         {
             return killer.CheckDoubleTrigger(target, () =>
             {
+                killer.SetKillCooldown();
                 killer.RPCPlayCustomSound("Bite");
 
                 if (!BittenPlayers.ContainsKey(target.PlayerId))

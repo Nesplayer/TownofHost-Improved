@@ -26,7 +26,7 @@ public static class TemplateManager
         ["PlayerSpeedMod"] = () => Main.NormalOptions.PlayerSpeedMod.ToString(),
         ["CrewLightMod"] = () => Main.NormalOptions.CrewLightMod.ToString(),
         ["ImpostorLightMod"] = () => Main.NormalOptions.ImpostorLightMod.ToString(),
-        ["KillCooldown"] = () => Options.KillCooldown.GetFloat().ToString(),
+        ["KillCooldown"] = () => Main.NormalOptions.KillCooldown.ToString(),
         ["NumCommonTasks"] = () => Main.NormalOptions.NumCommonTasks.ToString(),
         ["NumLongTasks"] = () => Main.NormalOptions.NumLongTasks.ToString(),
         ["NumShortTasks"] = () => Main.NormalOptions.NumShortTasks.ToString(),
