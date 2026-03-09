@@ -1808,7 +1808,7 @@
   "TriggerVent": "Vent",
   "TriggerDouble": "Double Click",
   "TimeManagerIncreaseMeetingTime": "Increase voting time by",
-  "TimeManagerLimitMeetingTime": "Maximum Length of Meetings",
+  "TimeManagerLimitMeetingTime": "Maximum Additional Length of Meetings",
   "MadTimeManagerLimitMeetingTime": "<color=#ff1919>Madmate</color> <color=#6495ed>Time Manager</color> - Minimum Voting Time",
   "AssignOnlyToCrewmate": "Assign only to <color=#8cffff>Crewmates</color>",
   "WorkhorseNumLongTasks": "Additional Long Tasks",

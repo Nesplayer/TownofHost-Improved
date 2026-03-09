@@ -40,18 +40,29 @@ internal class TimeManager : RoleBase
         playerIdList.Remove(playerId);
     }
 
-    private static int AdditionalTime(byte id)
+    private static int AdditionalTime = 0;
+
+    public override bool OnTaskComplete(PlayerControl player, int completedTaskCount, int totalTaskCount)
     {
-        var pc = id.GetPlayer();
-        return playerIdList.Contains(id) && pc.IsAlive() ? IncreaseMeetingTime.GetInt() * pc.GetPlayerTaskState().CompletedTasksCount : 0;
+        if (player.GetCustomRole() == CustomRoles.TimeManager)
+        {
+            AdditionalTime += IncreaseMeetingTime.GetInt();
+            if (AdditionalTime >= MeetingTimeLimit.GetInt())
+            {
+                AdditionalTime = MeetingTimeLimit.GetInt();
+            }
+        }
+        return true;
     }
+
     public static int TotalIncreasedMeetingTime()
     {
         int sec = 0;
         foreach (var playerId in playerIdList)
         {
             var player = playerId.GetPlayer();
-            if (player.Is(CustomRoles.Madmate) || player.Is(CustomRoles.Enchanted)) sec -= AdditionalTime(playerId);
+            if (player.Is(CustomRoles.Madmate) || player.Is(CustomRoles.Enchanted)) sec -= AdditionalTime;
+            else sec += AdditionalTime;
         }
         Logger.Info($"{sec}second", "TimeManager.TotalIncreasedMeetingTime");
         return sec;
