@@ -1221,7 +1221,8 @@ public enum CustomWinner
     Red = CustomRoles.Red,
     Blue = CustomRoles.Blue,
     TrickorTreat = CustomRoles.TrickorTreater,
-    FourCorners = CustomRoles.FourCorners
+    FourCorners = CustomRoles.FourCorners,
+    Slaad = CustomRoles.Slaad
 }
 [Obfuscation(Exclude = true)]
 public enum AdditionalWinners

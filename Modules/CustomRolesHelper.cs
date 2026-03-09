@@ -233,6 +233,7 @@ public static class CustomRolesHelper
             CustomRoles.Atoner or
             CustomRoles.Cultist or
             CustomRoles.Wight or
+            CustomRoles.Slaad or
             CustomRoles.Widow or
             CustomRoles.Godzilla;
     }
@@ -1489,6 +1490,7 @@ public static class CustomRolesHelper
            CustomRoles.Godzilla => CountTypes.Godzilla,
            CustomRoles.Wight => CountTypes.Wight,
            CustomRoles.Undead => CountTypes.Wight,
+           CustomRoles.Slaad => CountTypes.Slaad,
            _ => role.IsImpostorTeam() ? CountTypes.Impostor : CountTypes.Crew,
 
        };
@@ -1566,6 +1568,7 @@ public static class CustomRolesHelper
             CustomRoles.Gunslinger => CustomWinner.Gunslinger,
             CustomRoles.Godzilla => CustomWinner.Godzilla,
             CustomRoles.Wight => CustomWinner.Wight,
+            CustomRoles.Slaad => CustomWinner.Slaad,
             _ => throw new NotImplementedException()
 
         };
@@ -1617,6 +1620,7 @@ public static class CustomRolesHelper
             CountTypes.Volatile => CustomRoles.Volatile,
             CountTypes.Godzilla => CustomRoles.Godzilla,
             CountTypes.Wight => CustomRoles.Wight,
+            CountTypes.Slaad => CustomRoles.Slaad,
             _ => throw new NotImplementedException()
         };
     public static bool HasSubRole(this PlayerControl pc) => Main.PlayerStates[pc.PlayerId].SubRoles.Any();
@@ -1723,5 +1727,6 @@ public enum CountTypes
     Godzilla,
     Atoner,
     Hacker,
-    Wight
+    Wight,
+    Slaad
 }
