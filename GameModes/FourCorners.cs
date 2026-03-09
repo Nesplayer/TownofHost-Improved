@@ -71,6 +71,7 @@ internal static class FourCorners
             Main.PlayerStates[pc.PlayerId].MainRole = CustomRoles.FourCorners; 
             pc.RpcSetCustomRole(CustomRoles.FourCorners); 
             pc.RpcChangeRoleBasis(CustomRoles.FourCorners); 
+            pc.SetName(" ");
             Logger.Msg($"set role for {pc.PlayerId}: {finalRoles[pc.PlayerId]}", "SetRoles");
         }
         return finalRoles;
@@ -118,6 +119,7 @@ internal static class FourCorners
                         Reasons[player] = "chosen";
                         player.RpcMurderPlayer(player);
                     }
+                    player.KillFlash();
                 }
 
                 RoundTime = TimeBetweenRounds.GetInt();
