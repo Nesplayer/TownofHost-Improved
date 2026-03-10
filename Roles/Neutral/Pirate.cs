@@ -130,7 +130,7 @@ internal class Pirate : RoleBase
     public override Sprite GetKillButtonSprite(PlayerControl player, bool shapeshifting) => CustomButton.Get("Challenge");
 
     public override string GetMarkOthers(PlayerControl seer, PlayerControl target, bool isMeeting = false)
-        => isMeeting && target.PlayerId == PirateTarget ? ColorString(GetRoleColor(CustomRoles.Pirate), " ⦿") : string.Empty;
+        => isMeeting && target.PlayerId == PirateTarget ? ColorString(GetRoleColor(CustomRoles.Pirate), " ☠") : string.Empty;
 
     public override void OnCheckForEndVoting(PlayerState.DeathReason deathReason, params byte[] exileIds)
     {
