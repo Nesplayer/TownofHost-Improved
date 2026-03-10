@@ -4925,5 +4925,11 @@
   "Rookie": "Rookie",
   "RookieInfo": "You're brand new",
   "RookieInfoLong": "Sometimes the Rookie fails to complete their tasks. If this happens, their tasks are reset",
-  "RookieChance": "Chance for Rookie to fail a task"
+  "RookieChance": "Chance for Rookie to fail a task",
+  
+  "Mage": "Mage",
+  "MageInfo": "Spell evils and doom them to die!",
+  "MageInfoLong": "The Mage can use their kill button to spell a player. If they spell a Crewmate, the spell will be placed on themselves. If they spell an Impostor, Neutral, or Coven, the target will get the spell. All spelled players die at the end of the next meeting if the Mage is not dead.",
+  "MageSpellNotice": "The following players spelled are: {0}",
+  "MageTitle": "❀ The Mage has spelled some players ❀"
 }
